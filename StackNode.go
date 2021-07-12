@@ -28,7 +28,8 @@ func (s *Stack) push(val interface{}) {
 
 func (s *Stack) pop() interface{} {
 	if s.len() == 0 {
-		panic("Stack is empty")
+		fmt.Println("Stack is empty")
+		return
 	}
 	s.size--
 	tmp := s.top.value
@@ -37,6 +38,10 @@ func (s *Stack) pop() interface{} {
 }
 
 func (s *Stack) printInfo() {
+	if s.len() == 0 {
+		fmt.Println("Stack is empty")
+		return
+	}
 	curr := s.top
 	for i := 0; i < s.size; i++ {
 		fmt.Println(curr.value)
