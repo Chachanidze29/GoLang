@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
-	value int
+	value interface{}
 	next  *Node
 }
 
@@ -16,7 +18,7 @@ func (s *Stack) len() int {
 	return s.size
 }
 
-func (s *Stack) push(val int) {
+func (s *Stack) push(val interface{}) {
 	s.size++
 	s.top = &Node{
 		value: val,
@@ -24,7 +26,7 @@ func (s *Stack) push(val int) {
 	}
 }
 
-func (s *Stack) pop() int {
+func (s *Stack) pop() interface{} {
 	if s.len() == 0 {
 		panic("Stack is empty")
 	}
@@ -43,5 +45,5 @@ func (s *Stack) printInfo() {
 }
 
 func main() {
-
+	
 }
