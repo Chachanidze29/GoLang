@@ -7,9 +7,10 @@ type Graph struct {
 	adj map[int][]int
 }
 
-func NewGraph() Graph {
+func NewGraph(vNum int) Graph {
 	return Graph{
 		adj: make(map[int][]int),
+		V:   vNum,
 	}
 }
 
@@ -44,8 +45,7 @@ func (g *Graph) DFS(v int) {
 }
 
 func main() {
-	g := NewGraph()
-	g.V = 6
+	g := NewGraph(6)
 	g.addEdge(0, 1)
 	g.addEdge(0, 2)
 	g.addEdge(0, 4)
@@ -58,3 +58,4 @@ func main() {
 	g.addEdge(3, 1)
 	g.DFS(0)
 }
+
