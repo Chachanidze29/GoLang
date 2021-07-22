@@ -4,26 +4,6 @@ import (
 	"fmt"
 )
 
-func SquaresInRect(length, width int) []int {
-	res := []int{}
-	if length == width {
-		return nil
-	}
-	for true {
-		if length > width {
-			length -= width
-			res = append(res, width)
-		} else if length == width {
-			res = append(res, length)
-			break
-		} else {
-			width -= length
-			res = append(res, length)
-		}
-	}
-	return res
-}
-
 func SquaresInRectRec(length, width int, arr []int) []int {
 	if length == width {
 		return append(arr, length)
