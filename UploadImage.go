@@ -31,26 +31,10 @@ func foo(rw http.ResponseWriter, req *http.Request) {
 		}
 		defer f.Close()
 		fn = h.Filename
-		dotIndex := 0
-		// Validation Check
-		for i := 0; i < len(fn); i++ {
-			if string(fn[i]) == "." {
-				dotIndex = i
-			}
+		if !(strings.HasSuffix(fn, "jpg") || strings.HasSuffix(fn, "jpeg") || strings.HasSuffix(fn, "png")) {
+			fmt.Fprintln(rw, "Wrong Type")
+			return
 		}
-		for i := dotIndex; i < len(fn); i++ {
-			if strings.HasSuffix(fn, "jpg") {
-				continue
-			} else if strings.HasSuffix(fn, "jpeg") {
-				continue
-			} else if strings.HasSuffix(fn, "png") {
-				continue
-			} else {
-				fmt.Fprintln(rw, "Wrong Type")
-				return
-			}
-		}
-		//
 		df, err := os.Create("./assets/" + fn)
 		if err != nil {
 			panic(err)
