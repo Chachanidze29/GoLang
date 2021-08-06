@@ -8,7 +8,7 @@ type Person struct {
 }
 
 //Person is also of type Stringer because of overloaded method String()
-//fmt.Print looks for stringer type and calls it if it exsits
+//fmt and also log looks for stringer type and calls it if it exsits
 
 func (p Person) String() string {
 	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
@@ -32,6 +32,6 @@ func main() {
 	fmt.Println(d1, d2)
 	arr := []fmt.Stringer{&a, &z, &d1, &d2}
 	for _, v := range arr {
-		fmt.Println(v) // Println calls overloaded String() method
+		fmt.Println(v) // fmt calls overloaded String() method
 	}
 }
