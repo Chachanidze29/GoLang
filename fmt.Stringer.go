@@ -29,6 +29,6 @@ func main() {
 	fmt.Println(d1, d2)
 	arr := []fmt.Stringer{&a, &z, &d1, &d2}
 	for _, v := range arr {
-		fmt.Println(v)
+		fmt.Println(v) // Println calls overloaded String() method
 	}
 }
