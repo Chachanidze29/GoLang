@@ -26,10 +26,8 @@ func (d Developer) String() string {
 func main() {
 	a := Person{"Arthur Dent", 42}
 	z := Person{"Zaphod Beeblebrox", 9001}
-	fmt.Println(a, z)
 	d1 := Developer{Person{"Avtandil chachanidze", 18}, "Go"}
 	d2 := Developer{Person{"Vakho misuradze", 28}, "JS"}
-	fmt.Println(d1, d2)
 	arr := []fmt.Stringer{&a, &z, &d1, &d2}
 	for _, v := range arr {
 		fmt.Println(v) // fmt calls overloaded String() method
