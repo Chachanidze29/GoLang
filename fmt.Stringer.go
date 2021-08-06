@@ -7,6 +7,9 @@ type Person struct {
 	Age  int
 }
 
+//Person is also of type Stringer because of overloaded method String()
+//fmt.Print looks for stringer type and calls it if it exsits
+
 func (p Person) String() string {
 	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
 }
