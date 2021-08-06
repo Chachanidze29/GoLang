@@ -6,7 +6,7 @@ import (
 )
 
 type ErrNegativeSqrt float64
-
+// ErrNegativeSqrt Is also type of error because of overloaded Error() method
 func (e ErrNegativeSqrt) Error() string {
 	return fmt.Sprint("cannot Sqrt negative number: ", float64(e))
 }
@@ -32,7 +32,7 @@ func main() {
 	fmt.Println(num1)
 	num2, err := Sqrt(-2)
 	if err != nil {
-		log.Fatal(err) // Log.Fatal() calls overloaded Error() Method
+		log.Fatal(err)
 	}
 	fmt.Println(num2)
 }
