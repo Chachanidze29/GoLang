@@ -46,7 +46,7 @@ func merge(arr []int, left, middle, right int) {
 		if subArr1[i] <= subArr2[j] {
 			arr[k] = subArr1[i]
 			i++
-		} else if subArr1[i] > subArr2[j] {
+		} else {
 			arr[k] = subArr2[j]
 			j++
 		}
